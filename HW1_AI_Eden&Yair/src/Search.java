@@ -11,7 +11,7 @@ public class Search {
 			
 		initMaze();
 		
-		AlgoHelper.BFSMaze(current);
+		HelperBFSAlgo.BFSMaze(current);
 		
 	}
 	
@@ -19,7 +19,7 @@ public class Search {
 		
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("MazeFiles/map6.txt"));
+			in = new BufferedReader(new FileReader("MazeFiles/map8.txt"));
 			
 			String line;
 			Integer row, colmun;

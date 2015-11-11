@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Set;
 
 
-public class AlgoHelper {
+public class HelperBFSAlgo {
 	
 	public static void  BFSMaze(Maze m)
 	{
@@ -19,7 +19,7 @@ public class AlgoHelper {
 		while(!mazeCells.isEmpty())
 		{
 			 m.getCurrentLocation().isVisited = true;
-			 
+
 			 if(HelperMaze.isGoalState(m))
 			 {
 			   System.out.println("win in i: "+m.curI +" j: "+m.curJ);
