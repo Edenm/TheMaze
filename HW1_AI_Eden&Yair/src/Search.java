@@ -11,13 +11,15 @@ public class Search {
 			
 		initMaze();
 		
+		AlgoHelper.BFSMaze(current);
+		
 	}
 	
 	public static void initMaze(){
 		
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("MazeFiles/map1.txt"));
+			in = new BufferedReader(new FileReader("MazeFiles/map6.txt"));
 			
 			String line;
 			Integer row, colmun;
@@ -28,7 +30,7 @@ public class Search {
 			row = Integer.parseInt(line.split(" ")[1]);
 			
 			
-			char [][] maze= new char[row][colmun];
+			MazeCell [][] mazeCells= new MazeCell[row][colmun];
 			
 			for (int i=0; i<row; i++){
 				line = in.readLine();
@@ -37,13 +39,15 @@ public class Search {
 						startI=i;
 						startJ=j;
 					}
-					maze[i][j]=line.charAt(j);
+					
+					mazeCells[i][j] = new MazeCell(line.charAt(j),i,j);
+					
 				}
 			}
 			
 			in.close();
 			
-			current= new Maze(maze,row,colmun,startI,startJ);
+			current= new Maze(mazeCells,row,colmun,startI,startJ);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
