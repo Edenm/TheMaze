@@ -15,6 +15,7 @@ public class Search {
 		
 	}
 	
+	//ssaa 
 	public static void initMaze(){
 		
 		BufferedReader in = null;
