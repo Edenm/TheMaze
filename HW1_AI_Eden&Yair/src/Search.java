@@ -11,7 +11,9 @@ public class Search {
 			
 		initMaze();
 		
-		HelperBFSAlgo.BFSMaze(current);
+		//HelperBFSAlgo.BFSMaze(current);
+		HelperUniformAlgo.uniformMaze(current);
+		
 		
 	}
 	
@@ -20,7 +22,7 @@ public class Search {
 		
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("MazeFiles/map8.txt"));
+			in = new BufferedReader(new FileReader("MazeFiles/map9.txt"));
 			
 			String line;
 			Integer row, colmun;
