@@ -11,20 +11,18 @@ public class Maze {
 	
 	public static int yGoal;
 	
-	public Comparator<MazeCell> comparator;
-
 	public Maze() {
 		super();
 	}
 
-	public Maze(MazeCell[][] maze, int row, int col, int curI, int curJ, Comparator<MazeCell> comparator ) {
+	public Maze(MazeCell[][] maze, int row, int col, int curI, int curJ ) {
 		super();
 		this.theMaze = maze;
 		this.row = row;
 		this.col = col;
 		this.curI = curI;
 		this.curJ = curJ;
-		this.comparator = comparator;
+		
 	}
 	
 	public MazeCell getCurrentLocation()

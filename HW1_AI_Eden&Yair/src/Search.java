@@ -8,34 +8,48 @@ public class Search {
 
 	public static void main(String[] args) {
 
-		initMaze();
-		// HelperAStarAlgo.aStarMaze(current);
-		// HelperBFSAlgo.nodesVisited =0;
-		// HelperBFSAlgo.BFSMaze(current);
-		// HelperUniformAlgo.uniformMaze(current);
-
-//		AlgoBFS a = new AlgoBFS();
-//		a.setComparator(new BFSFirstH());
-//		a.Run(current);
-
+		//‘java map1.txt a2’ 
+		String mapName =null;
+		String algo =null;
+		Integer uristic= null; 
 		
-		AlgoUniform a = new AlgoUniform();
-		a.setComparator(new C_uniform());
-		a.Run(current);
+		initMaze(mapName);
+
+		mapName=args[0];
+		algo=args[1];
 		
-		// AlgoAstar ab = new AlgoAstar();
-		// ab.setComparator(new AStarFirstH());
-		// ab.Run(current);
-		//
+		if (algo.length()>1){
+			uristic=(int) algo.charAt(1);
+			algo=""+algo.charAt(0);
+		}
+		
+		switch (algo) {
+		case "u": AlgoUniform u = new AlgoUniform();
+				   u.setComparator(new C_uniform());
+				   u.Run(current);
+			break;
+		case "b": AlgoBFS bfs = new AlgoBFS();
+				  bfs.setComparator(new C_BFS(2));
+				  bfs.Run(current);
+			break;
+		case "a":  AlgoAstar ab = new AlgoAstar();
+				   ab.setComparator(new C_AStar(uristic));
+		           ab.Run(current);
+			
+			break;
+		default:
+			break;
+		}
+		
 
 	}
 
 	// ssaa
-	public static void initMaze() {
+	public static void initMaze(String map) {
 
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("MazeFiles/map3.txt"));
+			in = new BufferedReader(new FileReader("MazeFiles/"+map));
 
 			String line;
 			Integer row, colmun;
@@ -66,8 +80,7 @@ public class Search {
 
 			in.close();
 
-			current = new Maze(mazeCells, row, colmun, startI, startJ,
-					new AStarFirstH());
+			current = new Maze(mazeCells, row, colmun, startI, startJ);
 
 		} catch (IOException e) {
 			e.printStackTrace();
