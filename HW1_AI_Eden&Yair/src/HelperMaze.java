@@ -5,13 +5,13 @@ import java.util.Set;
 
 public class HelperMaze {
 	
-	public static Set<Direction> successor(Maze m){
-		Set<Direction> possibleDirection= new HashSet<Direction>();
+	public static ArrayList<Direction> successor(Maze m){
+		ArrayList<Direction> possibleDirection= new ArrayList<Direction>();
 		
 		for (Direction direction : Direction.values()) {
 			if(canGoTO(m,direction))
 				possibleDirection.add(direction);
-		}
+		}		
 		return possibleDirection;
 	}
 	
@@ -26,6 +26,7 @@ public class HelperMaze {
 	{ 
 		switch (dir) {
 		case Right:
+			
 			if(m.curJ + 1 >= m.col || m.theMaze[m.curI][m.curJ+1].sign == '#' ||m.theMaze[m.curI ][m.curJ+1].isVisited)
 				return false;
 			return true;
@@ -41,6 +42,7 @@ public class HelperMaze {
 			return true;
 			
 		case Down:
+			
 			if(m.curI + 1 >= m.row || m.theMaze[m.curI + 1 ][m.curJ].sign == '#' || m.theMaze[m.curI + 1 ][m.curJ].isVisited)
 				return false;
 			return true;

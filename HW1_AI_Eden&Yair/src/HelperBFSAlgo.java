@@ -12,11 +12,10 @@ public class HelperBFSAlgo {
 	
 	public static void  BFSMaze(Maze m)
 	{
-		Queue<MazeCell> mazeCells = new LinkedList<MazeCell>();
-		
-		Set<Direction> possibleDirection;
-		
+		Queue<MazeCell> mazeCells = new PriorityQueue<MazeCell>(m.col * m.row, new BFSFirstH());
 	
+		ArrayList<Direction> possibleDirection;
+		
 		mazeCells.add(m.getCurrentLocation());
 		
 		while(!mazeCells.isEmpty())
@@ -33,20 +32,10 @@ public class HelperBFSAlgo {
 			   System.out.println("The number of nodes visited: "+nodesVisited);
 			   HelperMaze.printMazeSulotion(m, m.getCurrentLocation());
 			   return;
-			 }
-			 
-			 possibleDirection=HelperMaze.successor(m);
-			 
-			 System.out.println("a");
-			 insertMazeCellsToQueue(possibleDirection,m,mazeCells);
-			// System.out.println("<"+possibleDirection+">");
-			
-			
-			 
+			 }			 
+			 possibleDirection=HelperMaze.successor(m);			 
 			 MazeCell pre =mazeCells.poll();
-			 
-			// System.out.println("next step : i: "+pre.iCell+" j: "+pre.jCell );
-			 
+			 insertMazeCellsToQueue(possibleDirection,m,mazeCells);
 			 if(mazeCells.isEmpty())
 			 {
 			   System.out.println(" The number of nodes visited: "+nodesVisited);
@@ -64,9 +53,10 @@ public class HelperBFSAlgo {
 	}
 
 	private static void insertMazeCellsToQueue(
-			Set<Direction> possibleDirection, Maze m,Queue<MazeCell> mazeCells) {
+			ArrayList<Direction> possibleDirection, Maze m,Queue<MazeCell> mazeCells) {
 		
 		for (Direction direction : possibleDirection) {
+			
 			nodesVisited++;
 			if(direction.equals(Direction.Up))
 			{

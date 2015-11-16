@@ -6,6 +6,10 @@ public class Maze {
 	public MazeCell[][] theMaze;
 	public int row, col;
 	public int curI, curJ;
+    public static int xGoal;
+	
+	public static int yGoal;
+	
 
 	public Maze() {
 		super();

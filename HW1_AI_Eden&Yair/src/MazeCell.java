@@ -17,12 +17,13 @@ public class MazeCell implements Comparable<MazeCell> {
 	
 	
 	
+	
 	public MazeCell(char charAt, int i, int j) {
 		sign = charAt;
 		iCell = i;
 		jCell =j;
 		isVisited =false;
-		if(sign == '.')
+		if(sign == '.' ||sign == 's'||sign == 'g')
 			cost = 1;
 		if(sign == ',')
 			cost = 2;

@@ -10,7 +10,8 @@ public class Search {
 	public static void main(String[] args) {
 			
 		initMaze();
-		
+		//HelperAStarAlgo.aStarMaze(current);
+		//HelperBFSAlgo.nodesVisited =0;
 		//HelperBFSAlgo.BFSMaze(current);
 		HelperUniformAlgo.uniformMaze(current);
 		
@@ -22,7 +23,7 @@ public class Search {
 		
 		BufferedReader in = null;
 		try {
-			in = new BufferedReader(new FileReader("MazeFiles/map9.txt"));
+			in = new BufferedReader(new FileReader("MazeFiles/map3.txt"));
 			
 			String line;
 			Integer row, colmun;
@@ -41,6 +42,10 @@ public class Search {
 					if (line.charAt(j)=='s'){
 						startI=i;
 						startJ=j;
+					}
+					if (line.charAt(j)=='g'){
+						current.xGoal = i;
+						current.yGoal = j;
 					}
 					
 					mazeCells[i][j] = new MazeCell(line.charAt(j),i,j);

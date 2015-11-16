@@ -1,17 +1,17 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
 
-public class HelperUniformAlgo {
+public class HelperAStarAlgo {
 	
-	static int  nodesVisited =0;
+
+static int  nodesVisited =0;
 	
-	public static void  uniformMaze(Maze m)
+	public static void  aStarMaze(Maze m)
 	{
-		Queue<MazeCell> mazeCells = new PriorityQueue<MazeCell>();
+		Queue<MazeCell> mazeCells = new PriorityQueue<MazeCell>(m.col * m.row, new AStarFirstH());
 		
 		ArrayList<Direction> possibleDirection;
 		
@@ -35,9 +35,16 @@ public class HelperUniformAlgo {
 			 
 			 possibleDirection=HelperMaze.successor(m);
 			 
+			
+			 
+			
+			
+			 
 			 MazeCell pre =mazeCells.poll();
 			 pre.isVisited = true;
 			 insertMazeCellsToQueue(possibleDirection,m,mazeCells);
+			// System.out.println("next step : i: "+pre.iCell+" j: "+pre.jCell );
+			 
 			 if(mazeCells.isEmpty())
 			 {
 			   System.out.println(" The number of nodes visited: "+nodesVisited);
