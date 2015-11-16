@@ -62,6 +62,10 @@ public class AlgoUniform extends AlgoBase {
 		// add to queue
 			mazeCells.add(temp);						
 		}
+		
+		
 	}
+	
+	
 }
 

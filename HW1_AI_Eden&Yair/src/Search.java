@@ -12,28 +12,32 @@ public class Search {
 		String mapName =null;
 		String algo =null;
 		Integer uristic= null; 
-		
-		initMaze(mapName);
-
 		mapName=args[0];
 		algo=args[1];
+		initMaze(mapName);
+
+		
 		
 		if (algo.length()>1){
-			uristic=(int) algo.charAt(1);
+			uristic=Integer.parseInt(""+algo.charAt(1));
 			algo=""+algo.charAt(0);
 		}
 		
 		switch (algo) {
 		case "u": AlgoUniform u = new AlgoUniform();
 				   u.setComparator(new C_uniform());
+				   System.out.println("Uniform algorithm: ");
 				   u.Run(current);
 			break;
 		case "b": AlgoBFS bfs = new AlgoBFS();
-				  bfs.setComparator(new C_BFS(2));
+				  bfs.setComparator(new C_BFS(uristic));
+				  System.out.println("BFS algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
 				  bfs.Run(current);
 			break;
 		case "a":  AlgoAstar ab = new AlgoAstar();
 				   ab.setComparator(new C_AStar(uristic));
+				   
+				  System.out.println("A* algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
 		           ab.Run(current);
 			
 			break;
