@@ -14,15 +14,35 @@ public class C_AStar implements Comparator<MazeCell> {
 
 		switch (uristic) {
 		case 1:
-				if ((Maze.xGoal - mc1.iCell) + (Maze.yGoal - mc1.jCell)
-					+ mc1.uniformCost > (Maze.xGoal - mc2.iCell)
-					+ (Maze.yGoal - mc2.jCell) + mc2.uniformCost)
+			int first =(Maze.xGoal - mc1.iCell) + (Maze.yGoal - mc1.jCell)+ mc1.uniformCost ;
+			int second= (Maze.xGoal - mc2.iCell)+ (Maze.yGoal - mc2.jCell) + mc2.uniformCost;
+				if (first > second)
 				return 1;
+				if(first == second)
+				{
+					
+					
+				if(mc1.iCell > mc2.iCell)
+					return 1;
+				if(mc1.iCell < mc2.iCell)
+					return -1;
+				
+				if(mc1.jCell > mc2.jCell)
+					return 1;
+				}
 			return -1;
 			
 		case 2:
-			   if ((pitaguras(mc1)+mc1.uniformCost) > (pitaguras(mc2)+mc2.uniformCost))
+			double firstp =pitaguras(mc1)+mc1.uniformCost;
+			double secondp= pitaguras(mc2)+mc2.uniformCost;
+			   if (firstp > secondp)
 			   		return 1;
+			   if(firstp == secondp)
+				{
+					
+				if(mc1.iCell > mc2.iCell)
+					return 1;
+				}
 			   return -1;
 			   
 		default: return 1;

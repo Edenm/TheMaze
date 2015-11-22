@@ -11,7 +11,7 @@ public class HelperMaze {
 		for (Direction direction : Direction.values()) {
 			if(canGoTO(m,direction))
 				possibleDirection.add(direction);
-		}		
+		}
 		return possibleDirection;
 	}
 	
@@ -55,36 +55,7 @@ public class HelperMaze {
 		
 	}
 	
-	private static boolean canGoTOUniform(Maze m, Direction dir)
-	{ 
-		switch (dir) {
-		case Right:
-			if(m.curJ + 1 >= m.col || m.theMaze[m.curI][m.curJ+1].sign == '#' ||m.theMaze[m.curI ][m.curJ+1].isVisited)
-				return false;
-			return true;
-			
-		case Left:
-			if(m.curJ - 1 < 0 || m.theMaze[m.curI ][m.curJ-1].sign == '#' || m.theMaze[m.curI][m.curJ-1].isVisited)
-				return false;
-			return true;
-			
-		case Up:
-			if(m.curI - 1 < 0  || m.theMaze[m.curI - 1 ][m.curJ].sign == '#' || m.theMaze[m.curI - 1 ][m.curJ].isVisited)
-				return false;
-			return true;
-			
-		case Down:
-			if(m.curI + 1 >= m.row || m.theMaze[m.curI + 1 ][m.curJ].sign == '#' || m.theMaze[m.curI + 1 ][m.curJ].isVisited)
-				return false;
-			return true;
-			
-
-		default:
-			break;
-		}
-		return true;
-		
-	}
+	
 	
 	public static ArrayList<Direction> wayToSoulation(MazeCell mc)
 	{
@@ -119,5 +90,8 @@ public class HelperMaze {
 		
 		System.out.println(m);
 	}
+	
+	
+	
 	
 }

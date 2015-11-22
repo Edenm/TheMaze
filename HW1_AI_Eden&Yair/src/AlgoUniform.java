@@ -4,11 +4,11 @@ import java.util.Queue;
 
 public class AlgoUniform extends AlgoBase {
 
+	
 	@Override
 	public void insertMazeCellsToQueue(ArrayList<Direction> possibleDirection,
 			Maze m, Queue<MazeCell> mazeCells) {
 		for (Direction direction : possibleDirection) {
-			nodesVisited++;
 			MazeCell temp;
 			if(direction.equals(Direction.Up))
 			{
@@ -39,7 +39,7 @@ public class AlgoUniform extends AlgoBase {
 }
 
 
-	private static void insertOrUpadteOrIgnore(Maze m,
+	private  void insertOrUpadteOrIgnore(Maze m,
 			Queue<MazeCell> mazeCells, MazeCell temp) {
 		if(mazeCells.contains(temp))
 		{

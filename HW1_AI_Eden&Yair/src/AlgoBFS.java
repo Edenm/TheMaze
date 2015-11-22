@@ -10,7 +10,7 @@ public class AlgoBFS extends AlgoBase {
 		MazeCell temp;
 for (Direction direction : possibleDirection) {
 			
-			nodesVisited++;
+		
 			if(direction.equals(Direction.Up))
 			{
 				temp = m.theMaze[m.curI -1][m.curJ];

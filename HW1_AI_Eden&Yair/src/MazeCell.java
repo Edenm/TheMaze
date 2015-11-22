@@ -28,6 +28,7 @@ public class MazeCell {
 	@Override
 	public String toString() {
 		return "" + sign;
+		//return "i: "+ iCell +" j: "+jCell;
 	}
 
 	public Direction whereIComeFromDiraction() {

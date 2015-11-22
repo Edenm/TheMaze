@@ -41,8 +41,11 @@ public abstract class AlgoBase {
 			 }			 
 			 possibleDirection=HelperMaze.successor(m);	 
 			 MazeCell pre =mazeCells.poll();
+				nodesVisited++;
 			 pre.isVisited = true;
 			 insertMazeCellsToQueue(possibleDirection,m,mazeCells);
+			
+			
 			// System.out.println("next step : i: "+pre.iCell+" j: "+pre.jCell );
 			 
 			 if(mazeCells.isEmpty())

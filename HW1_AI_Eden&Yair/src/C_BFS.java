@@ -15,12 +15,30 @@ public class C_BFS implements Comparator<MazeCell> {
 	
 		switch (uristic) {
 		case 1:
-			if ((Math.abs( Maze.xGoal-mc1.iCell))+(Math.abs(Maze.yGoal - mc1.jCell)) > (Math.abs(Maze.xGoal-mc2.iCell))+(Math.abs(Maze.yGoal - mc2.jCell)))
+			int first = Math.abs( Maze.xGoal-mc1.iCell)+Math.abs(Maze.yGoal - mc1.jCell);
+			int second = Math.abs(Maze.xGoal-mc2.iCell)+Math.abs(Maze.yGoal - mc2.jCell);
+			if (first > second)
 				return 1;
+				if(first == second)
+				{
+					
+				if(mc1.iCell > mc2.iCell)
+					return 1;
+				}
 			return -1;
 			
 		case 2:
-			   return pitaguras(mc1).compareTo(pitaguras(mc2));
+			double firstp =pitaguras(mc1);
+			double secondp= pitaguras(mc2);
+			   if (firstp > secondp)
+			   		return 1;
+			   if(firstp == secondp)
+				{				
+				if(mc1.iCell > mc2.iCell)
+					return 1;
+				}
+			   return -1;
+			   
 			   
 		default: return 1;
 		}
