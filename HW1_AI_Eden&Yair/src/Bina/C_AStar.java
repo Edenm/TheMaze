@@ -1,3 +1,4 @@
+package Bina;
 import java.util.Comparator;
 
 public class C_AStar implements Comparator<MazeCell> {
