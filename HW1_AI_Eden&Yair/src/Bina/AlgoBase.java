@@ -45,9 +45,6 @@ public abstract class AlgoBase {
 				nodesVisited++;
 			 pre.isVisited = true;
 			 insertMazeCellsToQueue(possibleDirection,m,mazeCells);
-			
-			
-			// System.out.println("next step : i: "+pre.iCell+" j: "+pre.jCell );
 			 
 			 if(mazeCells.isEmpty())
 			 {

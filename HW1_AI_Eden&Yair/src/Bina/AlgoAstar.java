@@ -42,10 +42,6 @@ for (Direction direction : possibleDirection) {
 
 	private void UpdateMazeCell(MazeCell temp,Maze m,Queue<MazeCell> mazeCells) {
 		insertOrUpadteOrIgnore(m,mazeCells,temp);
-		//System.out.println("i: "+temp.iCell +" j: " +temp.jCell);
-//		temp.isVisited = true;
-//		temp.diraction = m.getCurrentLocation();
-//		temp.uniformCost = m.getCurrentLocation().uniformCost + temp.cost;
 	}
 	
 	private  void insertOrUpadteOrIgnore(Maze m,
