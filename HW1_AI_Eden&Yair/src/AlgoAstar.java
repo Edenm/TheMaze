@@ -10,7 +10,7 @@ public class AlgoAstar extends AlgoBase {
 		MazeCell temp;
 for (Direction direction : possibleDirection) {
 			
-			System.out.println("d: "+direction);
+	
 			if(direction.equals(Direction.Up))
 			{
 				temp = m.theMaze[m.curI -1][m.curJ];

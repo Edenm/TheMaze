@@ -1,17 +1,12 @@
-import javax.swing.Icon;
+
 
 public class MazeCell {
 
 	public char sign;
-
 	public Boolean isVisited;
-
 	public int iCell, jCell;
-
 	public MazeCell diraction;
-
 	public int cost;
-
 	public int uniformCost = 0;
 
 	public MazeCell(char charAt, int i, int j) {

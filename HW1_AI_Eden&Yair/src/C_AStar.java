@@ -20,15 +20,25 @@ public class C_AStar implements Comparator<MazeCell> {
 				return 1;
 				if(first == second)
 				{
+					if(mc1.iCell > mc2.iCell)
+						return 1;
+					if(mc1.iCell < mc2.iCell)
+						return -1;
 					
+					if(mc1.jCell > mc2.jCell)
+						return 1;
+					if(mc1.jCell < mc2.jCell)
+						return -1;
 					
-				if(mc1.iCell > mc2.iCell)
-					return 1;
-				if(mc1.iCell < mc2.iCell)
-					return -1;
-				
-				if(mc1.jCell > mc2.jCell)
-					return 1;
+					if(mc1.iCell < mc2.iCell)
+						return 1;
+					if(mc1.iCell > mc2.iCell)
+						return -1;
+					
+					if(mc1.jCell < mc2.jCell)
+						return 1;
+					if(mc1.jCell > mc2.jCell)
+						return -1;
 				}
 			return -1;
 			
@@ -39,9 +49,25 @@ public class C_AStar implements Comparator<MazeCell> {
 			   		return 1;
 			   if(firstp == secondp)
 				{
+				   if(mc1.iCell > mc2.iCell)
+						return 1;
+					if(mc1.iCell < mc2.iCell)
+						return -1;
 					
-				if(mc1.iCell > mc2.iCell)
-					return 1;
+					if(mc1.jCell > mc2.jCell)
+						return 1;
+					if(mc1.jCell < mc2.jCell)
+						return -1;
+					
+					if(mc1.iCell < mc2.iCell)
+						return 1;
+					if(mc1.iCell > mc2.iCell)
+						return -1;
+					
+					if(mc1.jCell < mc2.jCell)
+						return 1;
+					if(mc1.jCell > mc2.jCell)
+						return -1;
 				}
 			   return -1;
 			   

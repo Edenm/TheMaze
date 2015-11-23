@@ -19,12 +19,29 @@ public class C_BFS implements Comparator<MazeCell> {
 			int second = Math.abs(Maze.xGoal-mc2.iCell)+Math.abs(Maze.yGoal - mc2.jCell);
 			if (first > second)
 				return 1;
-				if(first == second)
-				{
-					
+			if(first == second)
+			{
+				
 				if(mc1.iCell > mc2.iCell)
 					return 1;
-				}
+				if(mc1.iCell < mc2.iCell)
+					return -1;
+				
+				if(mc1.jCell > mc2.jCell)
+					return 1;
+				if(mc1.jCell < mc2.jCell)
+					return -1;
+				
+				if(mc1.iCell < mc2.iCell)
+					return 1;
+				if(mc1.iCell > mc2.iCell)
+					return -1;
+				
+				if(mc1.jCell < mc2.jCell)
+					return 1;
+				if(mc1.jCell > mc2.jCell)
+					return -1;
+			}
 			return -1;
 			
 		case 2:
@@ -32,10 +49,27 @@ public class C_BFS implements Comparator<MazeCell> {
 			double secondp= pitaguras(mc2);
 			   if (firstp > secondp)
 			   		return 1;
-			   if(firstp == secondp)
-				{				
-				if(mc1.iCell > mc2.iCell)
-					return 1;
+				if(firstp == secondp)
+				{
+					if(mc1.iCell > mc2.iCell)
+						return 1;
+					if(mc1.iCell < mc2.iCell)
+						return -1;
+					
+					if(mc1.jCell > mc2.jCell)
+						return 1;
+					if(mc1.jCell < mc2.jCell)
+						return -1;
+					
+					if(mc1.iCell < mc2.iCell)
+						return 1;
+					if(mc1.iCell > mc2.iCell)
+						return -1;
+					
+					if(mc1.jCell < mc2.jCell)
+						return 1;
+					if(mc1.jCell > mc2.jCell)
+						return -1;
 				}
 			   return -1;
 			   

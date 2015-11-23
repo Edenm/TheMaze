@@ -7,7 +7,6 @@ public class Search {
 	public static Maze current = null;
 
 	public static void main(String[] args) {
-
 		//‘java map1.txt a2’ 
 		String mapName =null;
 		String algo =null;
@@ -15,8 +14,6 @@ public class Search {
 		mapName=args[0];
 		algo=args[1];
 		initMaze(mapName);
-
-		
 		
 		if (algo.length()>1){
 			uristic=Integer.parseInt(""+algo.charAt(1));
@@ -45,10 +42,8 @@ public class Search {
 			break;
 		}
 		
-
 	}
 
-	// ssaa
 	public static void initMaze(String map) {
 
 		BufferedReader in = null;
@@ -73,8 +68,8 @@ public class Search {
 						startJ = j;
 					}
 					if (line.charAt(j) == 'g') {
-						current.xGoal = i;
-						current.yGoal = j;
+						Maze.xGoal = i;
+						Maze.yGoal = j;
 					}
 
 					mazeCells[i][j] = new MazeCell(line.charAt(j), i, j);
@@ -89,7 +84,6 @@ public class Search {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
