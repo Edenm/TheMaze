@@ -9,40 +9,43 @@ public class Search {
 
 	public static void main(String[] args) {
 		//‘java map1.txt a2’ 
-		String mapName =null;
-		String algo =null;
-		Integer uristic= null; 
-		mapName=args[0];
-		algo=args[1];
-		initMaze(mapName);
-		
-		if (algo.length()>1){
-			uristic=Integer.parseInt(""+algo.charAt(1));
-			algo=""+algo.charAt(0);
-		}
-		
-		switch (algo) {
-		case "u": AlgoUniform u = new AlgoUniform();
-				   u.setComparator(new C_uniform());
-				   System.out.println("Uniform algorithm: ");
-				   u.Run(current);
-			break;
-		case "b": AlgoBFS bfs = new AlgoBFS();
-				  bfs.setComparator(new C_BFS(uristic));
-				  System.out.println("BFS algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
-				  bfs.Run(current);
-			break;
-		case "a":  AlgoAstar ab = new AlgoAstar();
-				   ab.setComparator(new C_AStar(uristic));
-				   
-				  System.out.println("A* algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
-		           ab.Run(current);
+		try{
+			String mapName =null;
+			String algo =null;
+			Integer uristic= null; 
+			mapName=args[0];
+			algo=args[1];
+			initMaze(mapName);
 			
-			break;
-		default:
-			break;
+			if (algo.length()>1){
+				uristic=Integer.parseInt(""+algo.charAt(1));
+				algo=""+algo.charAt(0);
+			}
+			
+			switch (algo) {
+			case "u": AlgoUniform u = new AlgoUniform();
+					   u.setComparator(new C_uniform());
+					   System.out.println("Uniform algorithm: ");
+					   u.Run(current);
+				break;
+			case "b": AlgoBFS bfs = new AlgoBFS();
+					  bfs.setComparator(new C_BFS(uristic));
+					  System.out.println("BFS algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
+					  bfs.Run(current);
+				break;
+			case "a":  AlgoAstar ab = new AlgoAstar();
+					   ab.setComparator(new C_AStar(uristic));
+					   
+					  System.out.println("A* algorithm with heuristic "+ (uristic == 1 ? "manhattan" : "pythagoras"));
+			           ab.Run(current);
+				
+				break;
+			default:
+				break;
+			}
+		}catch(Exception e){
+			System.out.println("Yoy did something wrong :( try again!");
 		}
-		
 	}
 
 	public static void initMaze(String map) {
@@ -83,7 +86,6 @@ public class Search {
 			current = new Maze(mazeCells, row, colmun, startI, startJ);
 
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
