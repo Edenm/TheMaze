@@ -1,17 +1,13 @@
-import javax.swing.Icon;
+package Bina;
+
 
 public class MazeCell {
 
 	public char sign;
-
 	public Boolean isVisited;
-
 	public int iCell, jCell;
-
 	public MazeCell diraction;
-
 	public int cost;
-
 	public int uniformCost = 0;
 
 	public MazeCell(char charAt, int i, int j) {
@@ -28,6 +24,7 @@ public class MazeCell {
 	@Override
 	public String toString() {
 		return "" + sign;
+		//return "i: "+ iCell +" j: "+jCell;
 	}
 
 	public Direction whereIComeFromDiraction() {

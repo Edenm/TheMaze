@@ -1,6 +1,4 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Set;
+package Bina;
 
 public class Maze {
 
@@ -8,7 +6,6 @@ public class Maze {
 	public int row, col;
 	public int curI, curJ;
     public static int xGoal;
-	
 	public static int yGoal;
 	
 	public Maze() {
@@ -66,6 +63,18 @@ public class Maze {
 			}
 			mazeString += "\n";
 		}
+//		mazeString += "\n";
+//		for (int i = 0; i < row; i++) {
+//			for (int j = 0; j < col; j++) {
+//				if(theMaze[i][j].isVisited)
+//				mazeString += "" + 7;
+//				else
+//					mazeString += "" + theMaze[i][j];
+//					
+//			}
+//			mazeString += "\n";
+//		}
+		
 		return mazeString;
 	}
 

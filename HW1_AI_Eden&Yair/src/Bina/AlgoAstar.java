@@ -1,45 +1,50 @@
+package Bina;
 import java.util.ArrayList;
 import java.util.Queue;
 
 
-public class AlgoUniform extends AlgoBase {
-
+public class AlgoAstar extends AlgoBase {
+	
 	@Override
 	public void insertMazeCellsToQueue(ArrayList<Direction> possibleDirection,
 			Maze m, Queue<MazeCell> mazeCells) {
-		for (Direction direction : possibleDirection) {
-			nodesVisited++;
-			MazeCell temp;
+		MazeCell temp;
+for (Direction direction : possibleDirection) {
+			
+	
 			if(direction.equals(Direction.Up))
 			{
 				temp = m.theMaze[m.curI -1][m.curJ];
-				insertOrUpadteOrIgnore(m, mazeCells, temp);
-									
+				UpdateMazeCell(temp, m,mazeCells);
+				//mazeCells.add(temp);
 			}
 			if(direction.equals(Direction.Right))
 			{
-			
 				temp = m.theMaze[m.curI][m.curJ+1];
-				insertOrUpadteOrIgnore(m, mazeCells, temp);
+				UpdateMazeCell(temp, m,mazeCells);
+				//mazeCells.add(temp);
 			}
 			if(direction.equals(Direction.Down))
 			{
-				
 				temp = m.theMaze[m.curI + 1][m.curJ];
-				insertOrUpadteOrIgnore(m, mazeCells, temp);
+				UpdateMazeCell(temp, m,mazeCells);
+				//mazeCells.add(temp);
 			}
 			if(direction.equals(Direction.Left))
 			{
-				
-				temp= m.theMaze[m.curI ][m.curJ-1];
-				insertOrUpadteOrIgnore(m, mazeCells, temp);
+				temp = m.theMaze[m.curI ][m.curJ-1];
+				UpdateMazeCell(temp, m,mazeCells);
+				//mazeCells.add(temp);
 			}
 		}
+		
+	}
+
+	private void UpdateMazeCell(MazeCell temp,Maze m,Queue<MazeCell> mazeCells) {
+		insertOrUpadteOrIgnore(m,mazeCells,temp);
+	}
 	
-}
-
-
-	private static void insertOrUpadteOrIgnore(Maze m,
+	private  void insertOrUpadteOrIgnore(Maze m,
 			Queue<MazeCell> mazeCells, MazeCell temp) {
 		if(mazeCells.contains(temp))
 		{
@@ -68,4 +73,5 @@ public class AlgoUniform extends AlgoBase {
 	
 	
 }
+
 
