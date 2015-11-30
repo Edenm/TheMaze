@@ -10,8 +10,8 @@ public class AtaxxBoard {
 		this.board = new int[size][size];
 		board[0][0]=1;
 		board[6][6]=1;
-		board[0][0]=2;
-		board[0][0]=2;
+		board[6][0]=2;
+		board[0][6]=2;
 		
 	}
 	
